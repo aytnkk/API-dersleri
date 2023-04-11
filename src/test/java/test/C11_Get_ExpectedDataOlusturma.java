@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
 
 public class C11_Get_ExpectedDataOlusturma {
     /*
@@ -28,16 +29,22 @@ public class C11_Get_ExpectedDataOlusturma {
         String url="https://jsonplaceholder.typicode.com/posts/22";
       //expected data hazirla
         JSONObject expectedBody=new JSONObject();
+
         expectedBody.put("userId",3);
         expectedBody.put( "id",22);
         expectedBody.put("title","dolor sint quo a velit explicabo quia nam");
-        expectedBody.put(  "body","eos qui et ipsum ipsam suscipit aut\nsed omnis non odio\nexpedita ear um mollitia molestiae aut atque rem suscipit\nnam impedit esse");
+        expectedBody.put("body","eos qui et ipsum ipsam suscipit aut\n sed omnis non odio\n expedita ear um mollitia molestiae aut atque rem suscipit\n nam impedit esse");
 
         Response response=given().when().get(url);
         response.prettyPrint();
+
         //NOT: Donen responsen Body'si ile islem yapmak istiyorsak bunu jsonPath objesine donusturmemiz gerekiyor
         JsonPath resJsPath=response.jsonPath();
-        Assert.assertEquals(expectedBody.get("userId"),);
+        assertEquals(expectedBody.get("userId"),resJsPath.get("userId"));
+        assertEquals(expectedBody.get("id"),resJsPath.get("id"));
+        assertEquals(expectedBody.get("title"),resJsPath.get("title"));
+        assertEquals(expectedBody.get("body"),resJsPath.get("body"));
+
         }
     }
 
