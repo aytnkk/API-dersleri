@@ -12,22 +12,17 @@ public class C07_Get_BodyTekrarlardanKurtulma {
                 https://restful-booker.herokuapp.com/booking/10 url’ine
                 bir GET request gonderdigimizde donen Response’un,
                 status code’unun 200,
-                ve content type’inin application-json,
+                ve content type’inin application/json; charset=utf-8,
                 ve response body’sindeki
-                 {
-    "firstname": "Mark",
-    "lastname": "Jackson",
-    "totalprice": 223,
-    "depositpaid": false,
-    "bookingdates": {
-        "checkin": "2018-01-06",
-        "checkout": "2020-05-26"
-    },
-    "additionalneeds": "Breakfast"
-}
+                    "firstname“in,"Jim",
+                    ve "lastname“in, "Wilson",
+                    ve "totalprice“in, 609,
+                    ve "depositpaid“in,false,
+                    ve "additionalneeds“in,"Breakfast"
                 oldugunu test edin
          */
-    //not:bilgiler anlik degistirilevbilir o yuzden her zaman ayni gelmeyebilir
+
+    //not:bilgiler anlik degistirilebilir o yuzden her zaman ayni gelmeyebilir
 
     @Test
     public void get01(){
