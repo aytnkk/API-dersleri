@@ -67,7 +67,8 @@ public class C09_Post_JsonPathIleBodyTesti {
 
         //Assertion
         response.then().assertThat().statusCode(200).
-                contentType("application/json; charset=utf-8").body("booking.firstname",equalTo("Ali"),
+                contentType("application/json; charset=utf-8").
+                body("booking.firstname",equalTo("Ali"),
                 "booking.lastname",equalTo("Bak"),
                 "booking.totalprice",equalTo(500),
                 "booking.depositpaid",equalTo(false),
